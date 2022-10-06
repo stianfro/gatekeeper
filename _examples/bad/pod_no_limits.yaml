@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-no-limits
+  labels:
+    name: pod-no-limits
+spec:
+  containers:
+  - name: pod-no-limits
+    image: nginx:latest
+    ports:
+      - containerPort: 8080
