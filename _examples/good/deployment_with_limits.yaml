@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-no-limits
+spec:
+  selector:
+    matchLabels:
+      app: deployment-no-limits
+  template:
+    metadata:
+      labels:
+        app: deployment-no-limits
+    spec:
+      containers:
+      - name: deployment-no-limits
+        image: nginx:latest
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080

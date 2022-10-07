@@ -1,12 +1,14 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sRequiredLabels
+kind: K8sRequiredResources
 metadata:
-  name: ns-must-have-gk
+  name: container-must-have-requests
 spec:
   enforcementAction: warn
   match:
     kinds:
       - apiGroups: [""]
-        kinds: ["Namespace"]
+        kinds: ["Pod"]
   parameters:
-    labels: ["gatekeeper"]
+    requests:
+      - cpu
+      - memory
